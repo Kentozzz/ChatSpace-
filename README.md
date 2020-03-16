@@ -35,4 +35,4 @@
 - belongs_to :group
 
 ### Validation
-- validates :posts, precence: true
+- validates :message, precence: true

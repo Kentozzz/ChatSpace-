@@ -36,3 +36,15 @@
 
 ### Validation
 - validates :message, precence: true
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name  ||null: false, foreign_key: true|
+|email |integer|null: false, foreign_key: true|
+|paswold|integer|null: false, foreign_key: true|
+
+### Association
+- has_many :messages
+- has_many :groups

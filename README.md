@@ -1,3 +1,16 @@
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name |integer|null: false, foreign_key: true|
+|email|integer|null: false, foreign_key: true|
+|password|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- has_many :groups through: :users_groups
+- has_many :messages
+
 ## groups_usersテーブル
 
 |Column|Type|Options|
@@ -14,7 +27,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name  |integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 
 ### Association
@@ -36,15 +49,3 @@
 
 ### Validation
 - validates :message, precence: true
-
-## usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name  ||null: false, foreign_key: true|
-|email |integer|null: false, foreign_key: true|
-|paswold|integer|null: false, foreign_key: true|
-
-### Association
-- has_many :messages
-- has_many :groups

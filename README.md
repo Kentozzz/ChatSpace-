@@ -43,4 +43,4 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :group- validates :message, precence: true
+- belongs_to :group

@@ -2,21 +2,19 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name |integer|null: false, foreign_key: true|
-|email|integer|null: false, foreign_key: true|
-|password|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|name |string|null: false|
 
 ### Association
-- has_many :groups through: :users_groups
 - has_many :messages
+- has_many :groups_users
+- has_many :groups,through::groups_users
 
 ## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id |integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user  |reference|null: false, foreign_key: true|
+|group |reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -26,26 +24,23 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name  |integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|name  |string|null: false|
 
 
 ### Association
-- has_many :message
+- has_many :messages
+- has_many :groups_users
 - has_many :users,through::groups_users
 
-## messageテーブル
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|body  |text|       |
-|image |string   |null: false, foreign_key: true|
+|content|text|      |
+|image |string|　　　|
 |group_id|integer|null: false, foreign_key: true|
 |user_id |integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :group
-
-### Validation
-- validates :message, precence: true
+- belongs_to :group- validates :message, precence: true
